@@ -210,3 +210,25 @@ class LineSquareToBall {
         this.curr.startUpdating(cb)
     }
 }
+
+class Renderer {
+
+    lsb : LineSquareToBall = new LineSquareToBall()
+    animator : Animator = new Animator()
+
+    render(context : CanvasRenderingContext2D) {
+        this.lsb.draw(context)
+    }
+
+    handleTap(cb : Function) {
+        this.lsb.startUpdating(() => {
+            this.animator.start(() => {
+                cb()
+                this.lsb.update(() => {
+                    this.animator.stop()
+                    cb()
+                })
+            })
+        })
+    }
+}
