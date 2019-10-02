@@ -7,7 +7,7 @@ const backColor : string = "#BDBDBD"
 const delay : number = 20
 const parts : number = 4
 const nodes : number = 5
-const sizeFactor : number = 90
+const sizeFactor : number = 2.8
 const rFactor : number = 3
 
 class Stage {
